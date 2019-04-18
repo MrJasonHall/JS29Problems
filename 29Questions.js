@@ -77,4 +77,30 @@ function simpleAdding(num) {
     
 };
   
-    console.log(simpleAdding(10));
+console.log(simpleAdding(10));
+
+function letterCaps(str){
+
+    return str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+console.log(letterCaps('it\'s a wonderful life'));
+
+function SimpleSymbols(str){
+    // look for substring +[a-z]+
+    var test = str.match(/\+[a-z]\+/gi);
+    
+    // test is substring exists
+    if (test === null){
+        return false ;
+    } else return true;
+    //return res;
+
+    // for string to be true each letter must be +a+
+
+
+    //return rue or false
+}
+
+console.log(SimpleSymbols('a===+b===c'));
+console.log(SimpleSymbols('+B+===c+=+d+'));
+console.log(SimpleSymbols('===+b++===+'));
