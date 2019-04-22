@@ -104,3 +104,142 @@ function SimpleSymbols(str){
 console.log(SimpleSymbols('a===+b===c'));
 console.log(SimpleSymbols('+B+===c+=+d+'));
 console.log(SimpleSymbols('===+b++===+'));
+
+
+function CheckNums(num1, num2) {
+    if (num1 === num2) {
+        return -1;
+    } else if (num1 > num2){
+        return false;
+    } else return true;
+}
+
+console.log(CheckNums(25,25));
+
+function TimeConvert(num){
+    var hour = Math.floor(num/60);
+    var minute = num % 60;
+
+    return hour + ':' + minute;
+}
+
+console.log(TimeConvert(2495));
+
+function AlphabetSoup(str){
+
+    var newstr = str.toLowerCase().match(/[a-z]/gi).sort().join('');
+
+
+    return newstr;
+
+}
+console.log(AlphabetSoup('Hello everyone have a happy day!'));
+
+function ABCheck(str) {
+    var newstr = str.match(/a...b/gi);
+    return newstr === null ? false : true;
+}
+console.log(ABCheck('lane borrowed'));
+
+function VowelCount(str){
+    var newstr = str.match(/[aeiou]/gi);
+    return newstr.length;
+}
+console.log(VowelCount('All cows eat grass'));
+
+function WordCount(str){
+    newstr = str.split(' ')
+    return newstr.length;
+}
+console.log(WordCount('All cows eat grass'));
+
+function ExOh(str){
+    var x = str.match(/x/gi);
+    var o = str.match(/o/gi);
+
+    return x.length === o.length ? true : false;
+
+}
+console.log(ExOh('xooxxxxoooxo'));
+
+function Palindrome(str) {
+    var newStr = str.toLowerCase().split('').reverse('').join('');
+
+    return newStr === str ? true : false;
+
+
+}
+console.log(Palindrome('racecar'));
+
+function ArithGeo(arr){
+    var arith = [];
+    var geo = [];
+    //Geomtric
+    for (i = 0; i <arr.length-1; i++){
+        arith[i] = arr[i+1]-arr[i];
+        geo[i] = arr[i+1]/arr[i];
+
+    } 
+    var isArith = arith.reduce(function(a, b){ return (a === b) ? a : NaN; });
+
+    var isGeo = geo.reduce(function(a, b){ return (a === b) ? a : NaN; });
+ 
+    if ( isNaN(isArith) === true && isNaN(isGeo) === true) {
+        return -1
+    } else if (isNaN(isArith) === false && isNaN(isGeo) === true){
+        return 'Arithmetic';
+    } else if (isNaN(isArith) === true && isNaN(isGeo) === false){
+        return 'Geometric';
+    } 
+}
+console.log(ArithGeo([2, 4, 6, 8] ));
+console.log(ArithGeo([2, 6, 18, 54]));
+
+
+function ArrayAdditionI(arr) {
+
+    //var results = [];
+
+    arr = arr.sort(function(a, b){ return a-b});
+    var biggest = arr.pop();
+    //var tot = arr.reduce(function(a, b){ return a + b});
+   
+
+    var ps = [[]];
+    for (var i=0; i < arr.length; i++) {
+        for (var j = 0, len = ps.length; j < len; j++) {
+            ps.push(ps[j].concat(arr[i]));
+        }
+    }
+    return ps;
+}
+
+function sum(arr) {
+    var total = 0;
+    for (var i = 0; i < arr.length; i++)
+        total += arr[i];
+    return total
+}
+
+function findSum(numbers, targetSum) {
+    var numberSets = powerset(numbers);
+    for (var i=0; i < numberSets.length; i++) {
+        var numberSet = numberSets[i]; 
+        if (sum(numberSet) == targetSum)
+            return numberSet;
+    }
+
+    //function findSums(numbers, targetSum) {
+    var sumSets = [];
+    var numberSets = powerset(arr);
+    for (var i=0; i < numberSets.length; i++) {
+        var numberSet = numberSets[i]; 
+        if (sum(numberSet) == biggest)
+            sumSets.push(numberSet);
+    }
+    return sumSets;
+}
+
+
+
+console.log(ArrayAdditionI( [4, 6, 23, 10, 1, 3]));
